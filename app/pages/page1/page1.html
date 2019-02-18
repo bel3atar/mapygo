@@ -1,0 +1,25 @@
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>{{map.longname}}</ion-title>
+</ion-navbar>
+
+<ion-menu [content]="content">
+  <ion-toolbar>
+    <ion-title>Filtres</ion-title>
+  </ion-toolbar>
+  <ion-content>
+    <ion-list>
+      <ion-item *ngFor="#type of placeTypes">
+        <ion-icon item-left><img src='icons/{{type}}.png'></ion-icon>
+        <ion-label>{{type | translate}}</ion-label>
+        <ion-toggle (change)="toggle(type)" item-right checked="false"></ion-toggle>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-content #content padding class="page1">
+  <map (onReady)="mapReady($event)" #map></map>
+</ion-content>

@@ -1,0 +1,22 @@
+
+<ion-navbar *navbar>
+  <ion-title>
+    GoCard
+  </ion-title>
+</ion-navbar>
+
+<ion-content class="page3">
+  <ion-row *ngIf="image"><div><img style="width:100%" src="{{image}}"></div></ion-row>
+  <ion-row *ngIf="image">
+    <ion-col width-50>
+      <button block (click)="share()">
+        <ion-icon name="share"></ion-icon>
+      </button>
+    </ion-col>
+    <ion-col width-50>
+      <button block (click)="takePicture()">
+        <ion-icon name="camera"></ion-icon>
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-content>

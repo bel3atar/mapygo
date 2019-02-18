@@ -1,0 +1,32 @@
+<ion-toolbar>
+  <ion-buttons start>
+    <button royal (click)="close()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </button>
+  </ion-buttons>
+  <ion-title>{{place.name}}</ion-title>
+</ion-toolbar>
+
+<ion-content padding>
+  <ion-card>
+    <img *ngIf="place.image" src="{{place.image}}" (error)="error(place)">
+    <ion-card-content>
+      <ion-card-title></ion-card-title>
+      <ion-list>
+        <ion-item *ngIf="place.phone">
+          <ion-icon name="call" item-left></ion-icon>
+          {{place.phone}}
+        </ion-item>
+        <ion-item *ngIf="place.email">
+          <ion-icon name="at" item-left></ion-icon>
+          {{place.email}}
+        </ion-item>
+        <ion-item *ngIf="place.url">
+          <ion-icon name="globe" item-left></ion-icon>
+          <a href="{{place.url}}">{{place.url}}</a>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <img style="margin:0 auto; display:block" src="assets/splitter.png">
+</ion-content>

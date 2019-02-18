@@ -1,0 +1,24 @@
+
+<ion-navbar *navbar>
+  <ion-title>Évènements</ion-title>
+</ion-navbar>
+
+<ion-content class="page2">
+  <ion-refresher (refresh)="getEvents($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <span *ngFor="#type of types()">
+      <ion-list-header style="color: orange">{{type}}</ion-list-header>
+      <ion-item *ngFor="#event of events[type]" (click)="openModal(event)">
+        <ion-thumbnail item-left>
+          <img src="data:image;base64,{{event.image}}">
+        </ion-thumbnail>
+        <h2>{{event.title}}</h2>
+        <p style="color: orange">{{event.date}}</p>
+      </ion-item>
+    </span>
+  </ion-list>
+  <img style="margin:0 auto; display:block" src="assets/splitter.png">
+</ion-content>
+
